@@ -1,26 +1,22 @@
 ﻿using System;
-
-/* MOONLIGHT DRIVE (Adventure Game Project)
- * Tyler Campo
- * 2/5/21 - 3/30/21
- *  This work is a derivative of 
- * "C# Adventure Game" by http://programmingisfun.com, used under CC BY.
- * https://creativecommons.org/licenses/by/4.0/
- * Ascii text http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
- * Menu help https://canvas.colum.edu/courses/21700/pages/keyboard-controlled-menu-incl-video?module_item_id=1052564
- */
-
-namespace AdventGame
+using static System.Console; 
+namespace TriviaGame
 {
     class Program
     {
+        Game game = new Game();
         static void Main(string[] args)
+        /* Trivia Game by Tyler Campo
+         * Intro to Programming
+         * Instructor Biberoglu
+         *2/7/21
+         *Updated 3/15/21
+         *Credit: Canvas Moduels/programmingisfun.com
+         *Credit: https://youtu.be/j6ShXTjG5fg 
+         */
         {
-            Console.Title = "Adventure Game: Moonlit Pilgrimage";
             Game game = new Game();
             game.run();
         }
-            
-
     }
-};
+}
