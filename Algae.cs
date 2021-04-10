@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreaturesOfTheSeaGUI
 {
-    public class Item
+    public class Algae : Food
     {
-        public string Name { get; set; }
     }
 }

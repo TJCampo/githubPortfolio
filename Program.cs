@@ -1,35 +1,23 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace InsectGame
+namespace CreaturesOfTheSeaGUI
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-
-            // Tyler Campo, Vinh Nguyen, Vinnie Konwent, AJ Warren.
-            Beetle Philip = new Beetle();
-            Philip.name = "Philip";
-            Philip.age = 1;
-            Philip.havehorn = true;
-            Philip.havewings = true;
-            Philip.numberoflegs = 6;
-            Console.WriteLine($"Our beetles name is {Philip.name}.");
-            Console.WriteLine($"{Philip.name} is {Philip.age} year old.");
-            Console.WriteLine($"{Philip.name} has {Philip.numberoflegs} legs.");
-            Philip.play();
-            Philip.eat();
-            GrassHopper Billy = new GrassHopper();
-            Billy.name = "Billy";
-            Billy.age = 1;
-            Billy.havehorn = false;
-            Billy.havewings = true;
-            Billy.numberoflegs = 6;
-            Console.WriteLine($"{Billy.name} is our grasshoppers name.");
-            Console.WriteLine($"{Billy.name} is {Billy.age} month old.");
-            Console.WriteLine($"{Billy.name} has {Billy.numberoflegs} legs.");
-            Billy.play();
-            Billy.eat();
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }

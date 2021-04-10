@@ -1,275 +1,283 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
-namespace ToEarlyICantThink
+
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+
+namespace CreaturesOfTheSeaGUI
 {
-    class Game
+    public class Game
     {
 
-        //A Player property that holds a reference to the current player
-        public Player CurrentPlayer { get; set; }
+        public List<Creature> Creatures { get; set; }
 
-        //List of room in the game
-        public List<Room> Rooms { get; set; }
+        public List<Item> Items { get; set; }
 
-        //Default constructor to call the setup method
+
+        public string fileLocation = "C:\\Work\\Temp\\CreaturesOfTheSea.txt";
+
         public Game()
         {
-            Setup();
-        }
 
-        //Sets up all the items, rooms and the current player game.
-        public void Setup()
-        {
-            //Create an empty list to hold the rooms for the game
-            Rooms = new List<Room>();
-
-            //Creating items
-            Item pbSandwich = new Item("PB Sandwich");
-            Item cheese = new Item("Cheese");
-
-            //Creating rooms
-            Item woodenspoon = new Item("Wooden Spoon");
-            Item apron = new Item("Apron");
-
-            NPC mom = new NPC()
+            SeaWeed seeWeed = new SeaWeed()
             {
-                Name = "MA",
-                Greeting = "What are you doing in the kitchen?",
-                Wares = new List<Item>() {woodenspoon, apron}
-            };
-            Room kitchen = new Room()
-            {
-                Name = "Kitchen",
-                RoomLoot = new List<Item>() { pbSandwich, cheese },
-                RequiredItems = null,
-                Guaurdian = mom
+                Name = "Sea Weed"
             };
 
-            //Adding kitchen room the Room list
-            Rooms.Add(kitchen);
-            Item baseball = new Item("Baseball");
-            Item glove = new Item("Glove");
-            NPC Brother = new NPC()
+            Food fishFood = new Food()
             {
-                Name = "Big Bro",
-                Greeting = "Hey lil' man.",
-                Wares = new List<Item>() {baseball, glove }
-            };
-            Item goldRing = new Item("Gold Ring");
-            Room kidsBedroom = new Room()
-            {
-                Name = "Kid's Bedroom",
-                RoomLoot = new List<Item>() { goldRing },
-                RequiredItems = new List<Item>() { pbSandwich },
-                Guaurdian = Brother
-                
-            };
-            Rooms.Add(kidsBedroom);
-            Item pocketwatch = new Item("Pocket Watch");
-            Item wallet = new Item("Wallet", false);
-
-
-            NPC dad = new NPC()
-            {
-                Name = "Dad",
-                Greeting = "Hello, child.",
-                Wares = new List<Item>() { pocketwatch, wallet }
-            };
-            Item stupidPrize = new Item("Prize");
-            Room masterBedroom = new Room()
-            {
-                Name = "Master Bedroom",
-                RoomLoot = new List<Item>() { stupidPrize },
-                RequiredItems = new List<Item>() { goldRing },
-                Guaurdian = dad
-            };
-            Rooms.Add(masterBedroom);
-
-            //Creates a player
-            CurrentPlayer = new Player()
-            {
-                Name = "",
-                Inventory = new List<Item>()
+                Name = "Fish Food",
+                Calories = 10
             };
 
-            //Calls the greeting
-            Greeting();
-        }
-
-
-        //Show the greeting for the game & show the menu
-        public void Greeting()
-        {
-
-            Console.WriteLine("Welcome to the ToEarlyICantThink, what is your name?");
-            
-            //Get the user name from the user
-            string userInput = Console.ReadLine();
-            CurrentPlayer.Name = userInput;
-
-            ShowMenu();
-        }
-
-        //Showing initial game menu options
-        public void ShowMenu()
-        {
-            Console.Clear();
-            Console.WriteLine($"Welcome to the ToEarlyICantThink game {CurrentPlayer.Name}, here is your options");
-            Console.WriteLine("1) View Roowms");
-            Console.WriteLine("2) Check your Inventory");
-
-            var userInput = Console.ReadKey();
-            Console.Clear();
-
-            //Checking to see if player entered the correct input.
-            if (userInput.Key == ConsoleKey.D1 || userInput.Key == ConsoleKey.NumPad1)
+            Algae algae = new Algae()
             {
-                ShowRooms();
-            }
-            else if (userInput.Key == ConsoleKey.D2 || userInput.Key == ConsoleKey.NumPad2)
+                Name = "Algae",
+                Calories = 45
+            };
+
+            Goldfish swimShady = new Goldfish()
             {
-                Console.WriteLine("Viewing Inventory");
-            }
-            else
+                Name = "Swim Shady",
+                Age = 1,
+                Color = "Orange",
+                NumberOfFins = 1
+            };
+
+            Pufferfish phat = new Pufferfish()
             {
-                Console.WriteLine("Please choose a valid option");
-                ShowMenu();
-            }
+                Name = "Phat",
+                Age = 7,
+                Color = "Yellow",
+                NumberOfFins = 5
+            };
 
-        }
-
-
-        public void ShowRooms()
-        {
-            //Console.Clear();
-            Console.WriteLine("Viewing Rooms");
-          
-            //Defining a starting number that will increment with the room list
-            int index = 1;
-            foreach (Room room in Rooms)
+            SeaTurtle crush = new SeaTurtle()
             {
-                //Show the room name with the index number
-                Console.WriteLine($"{index}) {room.Name}");
-                //Increment the index by 1 for the next room
-                index++;
-            }
-            //Adding a manual option for user to select for exiting out this menu
-            Console.WriteLine($"{index}) Exit");
-            
-            
-            Console.WriteLine($"Where do you want to go? {CurrentPlayer.Name}");
-            
-            //Get the user input as a number using a utility function
-            int userInputAsNumber = Utility.GetANumberFromUser(index);
+                Name = "Crush",
+                Age = 150,
+                Color = "Green",
+                HasTail = true
+            };
 
-            //Check the user made the selection of the last option we manually added to the list
-            if (userInputAsNumber == index)
+            Reptile waterDragon = new Reptile()
             {
-                Console.WriteLine("Good Bye");
+                Name = "Water Dragon",
+                Age = 2,
+                Color = "Green",
+                HasTail = true
+            };
 
-                //Show user's inventory before exit
-                CurrentPlayer.ShowInventory();
 
-                Environment.Exit(0);
-            }
-
-            //Find the room user wants to go to using the number user entered. It needs to be decreased by 1 to accomadate 0 based index of the list. 
-            Room selectedRoom = Rooms[userInputAsNumber - 1];
-
-            //Calling a method to check and see user has the required items in their inventory.
-            bool canUserMoveToThisRoom = MoveToARoom(selectedRoom);
-
-            //If they user has the item, move that room
-            if (canUserMoveToThisRoom)
+            Creatures = new List<Creature>()
             {
-                ShowRoomDetails(selectedRoom);
-            }
-            else
-            {
-                //Shows rooms again
-                ShowRooms();
-            }
-        }
+                swimShady,
+                phat,
+                crush,
+                waterDragon
+            };
 
-        //A method to  check and see user has the required items in their inventory.
-        public bool MoveToARoom(Room room)
-        {
-            //Create a bool value - default option is that user has everything required.
-            bool userHasRequiredItems = true;
-
-            //Checks if the room has required items or not
-            if (room.RequiredItems != null)
+            Items = new List<Item>()
             {
-                //Going over the list of required items for that room
-                foreach (Item item in room.RequiredItems)
+                fishFood,
+                algae,
+                seeWeed
+            };
+
+            //List<Creature> creaturesThatAreGreen = new List<Creature>();
+            //foreach (Creature creature in Creatures)
+            //{
+            //    if (creature.Color == "Green" && creature.Age > 100)
+            //    {
+            //        creaturesThatAreGreen.Add(creature);
+            //    }
+            //}
+            //WriteLine(creaturesThatAreGreen.Count);
+
+            //List<Creature> creaturesThatAreGreen2 = Creatures.Where(creature => creature.Color == "Green" && creature.Age > 100).ToList();
+
+            //WriteLine(creaturesThatAreGreen2.Count);
+
+
+            //Creature crush = Creatures.FirstOrDefault(creature => creature.Name == "Crush");
+
+            List<string> Options = new List<string>()
+            {
+                "List all creatures",
+                "List all items",
+                "Select a creature",
+                "Create a new creature",
+                "Exit game"
+            };
+
+            //Checking to see if the text file exists
+            if (File.Exists(fileLocation))
+            {
+                //Read all contents
+                //Read all contents from the file
+                //var lines = File.ReadLines(fileLocation);
+
+                var lines = File.ReadAllText(fileLocation);
+
+                var creaturesFromAFile = JsonSerializer.Deserialize<List<Creature>>(lines);
+
+                foreach (Creature creature in creaturesFromAFile)
                 {
-                    //If the players inventor does not contain a required item, mark the local variable false.
-                    if (!CurrentPlayer.Inventory.Contains(item))
-                    {
-                        userHasRequiredItems = false;
-                        //Show user that they are missing this item
-                        Console.WriteLine($"You are missing:{item.Name}");
-                    }
+
+                    Creatures.Add(creature);
+                    //    //NAME%AGE%COLOR - this is the file format
+                    //    string[] values = line.Split("%");
+
+                    //    //Make sure name is not empty
+                    //    if (values.Length == 3 && !String.IsNullOrEmpty(values[0]))
+                    //    {
+                    //        //Assing the first part of the string to the name
+                    //        string name = values[0];
+                    //        //Assign second part as age
+                    //        int age = Convert.ToInt32(values[1]);
+
+                    //        //Assign third part as color
+                    //        string color = values[2];
+
+                    //        Creature creature = new Creature()
+                    //        {
+                    //            Name = name,
+                    //            Age = age,
+                    //            Color = color
+                    //        };
+                    //        Creatures.Add(creature);
+                    //    }
                 }
             }
-            //Return the result
-            return userHasRequiredItems;
-        }
-
-        //Shows room details (inventory)
-        public void ShowRoomDetails(Room room)
-        {
-          
-
-
-            Console.WriteLine($"Welcome to: {room.Name}, here are the item(s) in this room");
-
-            //Defining a starting number that will increment with the room inventory list
-            int index = 1;
-            foreach (Item item in room.RoomLoot)
-            {
-                //Show the item name with the index number
-                Console.WriteLine($"{index}) {item.Name}");
-                index++;
-            }
-
-            Console.WriteLine($"{index}) Talk to {room.Guaurdian.Name}");
-            index++;
-            //Adding a manual option for user to select for exiting out this menu
-            Console.WriteLine($"{index}) Exit");
-            Console.WriteLine($"What do you want to pick? {CurrentPlayer.Name}");
-            int userInputAsNumber = Utility.GetANumberFromUser(index);
-
-            //Check the user made the selection of the last option we manually added to the list
-            if (userInputAsNumber == index)
-            {
-                //User wants to go back to the rooms.
-                ShowRooms();
-            }
-            if (userInputAsNumber == room.RoomLoot.Count +1)
-            {
-                room.Guaurdian.Trade(room, CurrentPlayer);
-
-                ShowRoomDetails(room);
-
-            }
             else
             {
-                //Find the selected item from rooms item list
-                Item selectedItem = room.RoomLoot[userInputAsNumber - 1];
-
-                //Call the player method to add the item to the inventory
-                CurrentPlayer.PickUpItem(selectedItem);
-
-                //Show room details again so user can pick up other items
-                ShowRoomDetails(room);
+                //Creating an empty text file
+                //File.WriteAllText(fileLocation, "");
+                string jsonString = JsonSerializer.Serialize(Creatures);
+                File.WriteAllText(fileLocation, jsonString);
             }
 
+            //string text =
+            //"A class is the most powerful data type in C#. Like a structure, " +
+            //"a class defines the data and behavior of the data type. ";
+
+            //await File.WriteAllTextAsync("WriteText.txt", text);
+
+            bool exit = false;
+            while (!exit)
+            {
+                int userChoice = Utility.ShowMenu("Please choose an option:", Options);
+                switch (userChoice)
+                {
+                    case 1:
+                        ShowCreatureList();
+                        break;
+                    case 2:
+                        ShowItemsList();
+                        break;
+                    case 3:
+                        SelectACreature();
+                        break;
+                    case 4:
+                        CreateNewCreature();
+                        break;
+                    case 5:
+                        exit = true;
+                        WriteLine("Thank you for playing");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void CreateNewCreature()
+        {
+            Creature creature = new Creature();
+            WriteLine("What would you like to call the creature?");
+            creature.Name = ReadLine();
+            WriteLine($"How old is {creature.Name}?");
+            creature.Age = Utility.GetUserInputRange(200);
+            WriteLine($"What color is {creature.Name}?");
+            creature.Color = ReadLine();
+
+            Creatures.Add(creature);
+
+            ////Creating 1 line of string out of the creature information. Information seperated by a semi column so that it can parsed easly later on.
+            //string creatureDetails = $"{creature.Name}%{creature.Age}%{creature.Color}";
+            ////Updating text file with new create information
+            //using (StreamWriter sw = File.AppendText(fileLocation))
+            //{
+            //    sw.WriteLine(creatureDetails);
+            //}
+
+            string jsonString = JsonSerializer.Serialize(Creatures);
+            File.WriteAllText(fileLocation, jsonString);
+        }
+
+        private void SelectACreature()
+        {
+            //Language Integrated Query(LINQ)
+
+            //WriteLine(crush.Age);
+            List<string> creatureList = Creatures.Select(creature => creature.Name).ToList();
+            int creatureChoice = Utility.ShowMenu("Please choose a creature", creatureList);
+
+            Creature selectedCreature = Creatures[creatureChoice - 1];
+            List<string> Options = new List<string>()
+            {
+                $"Feed {selectedCreature.Name}",
+                $"Talk to {selectedCreature.Name}",
+                "Go back"
+            };
+
+            bool exit = false;
+            while (!exit)
+            {
+                int subMenuChoice = Utility.ShowMenu($"{selectedCreature.Name} says hi! What would you like to do?", Options);
+                switch (subMenuChoice)
+                {
+                    case 1:
+                        Random random = new Random();
+                        int index = random.Next(0, Items.Count);
+                        //WriteLine($"Random: {index}");
+                        selectedCreature.Eat(Items[index]);
+                        break;
+                    case 2:
+                        selectedCreature.Communicate();
+                        break;
+                    case 3:
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
 
         }
+
+        private void ShowCreatureList()
+        {
+            foreach (Creature creature in Creatures)
+            {
+                WriteLine($"{creature.Name} is {creature.Age} years old, and is the color {creature.Color}");
+            }
+        }
+        private void ShowItemsList()
+        {
+            foreach (Item item in Items)
+            {
+                WriteLine($"{item.Name}");
+            }
+        }
+
+
     }
 }

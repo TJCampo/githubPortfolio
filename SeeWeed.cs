@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CreaturesOfTheSeaGUI
 {
-    public class Item
+    class SeaWeed : Item
     {
-        public string Name { get; set; }
+        public int Calories { get; set; }
     }
 }
