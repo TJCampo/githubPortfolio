@@ -16,6 +16,11 @@ The [Study Application](https://github.com/TJCampo/githubPortfolio/commit/2880cd
 
 In the [Explorable Areas](https://github.com/TJCampo/githubPortfolio/commit/171722a5144e6eed53d3cbd6bc53d9d7daf63877) program we learned a lot about arrays and their usefulness in avoiding repetition. This game has us explore multiple rooms and talk to NPCs. The NPCs can give us items that are needed to unlock other rooms. 
 
+### Underwater Creatures
+
+In [Underwater Creatures](https://github.com/TJCampo/githubPortfolio/commit/1aa87bc241807f5a6e9913fa414b04df3e1858a7) we tested our knowledge on Inheritence by having multiple derived classes with each acting differently than the other. This program lets us interact and feed different marine creatures. They are all unique. Food that one fish likes won't sit well with another fish.
+
+
 
 
 ```markdown
