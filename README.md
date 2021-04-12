@@ -4,9 +4,10 @@ You can use the [editor on GitHub](https://github.com/TJCampo/githubPortfolio/ed
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Testa
+### Adventure Game
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The [Adventure Game](https://github.com/TJCampo/githubPortfolio/commit/2653adfb50882214a3a0f7363e3535551fbf012a) was a large project that we worked on for the first half of the semester. It demonstrates all we learned over the semester, including fundamental concepts like Inheritance, Polymorphism, and Encapsulation. In the game, the player uses a keyboard-controlled menu to navigate a mysterious forest, and depending on their choices, can get one of three unique endings. 
+
 
 ```markdown
 Syntax highlighted code block
