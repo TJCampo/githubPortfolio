@@ -10,7 +10,7 @@ The [Adventure Game](https://github.com/TJCampo/githubPortfolio/commit/2653adfb5
 
 ### Study Application 
 
-The [Study Application] was a useful project that got us to review the information we learned in class and learn new ideas like reading and writing data from external files. Using external .txt files, this program displays definitions and terms about programming, tests your knowledge on them, and gives you a score based on the answers you got right. 
+The [Study Application](https://github.com/TJCampo/githubPortfolio/commit/2880cd4cd0c86db2c71070b6b8763515275e594f) was a useful project that got us to review the information we learned in class and learn new ideas like reading and writing data from external files. Using external .txt files, this program displays definitions and terms about programming, tests your knowledge on them, and gives you a score based on the answers you got right. 
 
 
 
