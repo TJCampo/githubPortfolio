@@ -14,7 +14,7 @@ The [Study Application](https://github.com/TJCampo/githubPortfolio/commit/2880cd
 
 ### Explorable Areas
 
-In the [Explorable Areas] program we learned a lot about arrays and their usefulness in avoiding repetition. This game has us explore multiple rooms and talk to NPCs. The NPCs can give us items that are needed to unlock other rooms. 
+In the [Explorable Areas](https://github.com/TJCampo/githubPortfolio/commit/171722a5144e6eed53d3cbd6bc53d9d7daf63877) program we learned a lot about arrays and their usefulness in avoiding repetition. This game has us explore multiple rooms and talk to NPCs. The NPCs can give us items that are needed to unlock other rooms. 
 
 
 
