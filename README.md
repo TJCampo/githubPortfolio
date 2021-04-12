@@ -8,6 +8,11 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 The [Adventure Game](https://github.com/TJCampo/githubPortfolio/commit/2653adfb50882214a3a0f7363e3535551fbf012a) was a large project that we worked on for the first half of the semester. It demonstrates all we learned over the semester, including fundamental concepts like Inheritance, Polymorphism, and Encapsulation. In the game, the player uses a keyboard-controlled menu to navigate a mysterious forest, and depending on their choices, can get one of three unique endings. 
 
+### Study Application 
+
+The [Study Application] was a useful project that got us to review the information we learned in class and learn new ideas like reading and writing data from external files. Using external .txt files, this program displays definitions and terms about programming, tests your knowledge on them, and gives you a score based on the answers you got right. 
+
+
 
 ```markdown
 Syntax highlighted code block
