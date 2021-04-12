@@ -1,8 +1,7 @@
-## Welcome to GitHub Pages
-
+## Our Projects
+Here is a list of the game me and the class made together this semester.
 You can use the [editor on GitHub](https://github.com/TJCampo/githubPortfolio/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Adventure Game
 
@@ -32,32 +31,4 @@ The [Shift Cipher](https://github.com/TJCampo/githubPortfolio/commit/3cf772735f6
 
 The [Trivia Game](https://github.com/TJCampo/githubPortfolio/commit/aad7b225f22a3649cb64809f6c98e6a8cd2288ae) was a project that went through multiple iterations. We learned how to use arrays, store external files and display them, and other useful things. This trivia program lets the player pick from three different topics and then gets tested based on that topic. The game checks the player's answers and then displays them at the end. The player's score is also saved to an external file which is displayed as high scores. 
 
-
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TJCampo/githubPortfolio/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Thank you for checking out my list!
