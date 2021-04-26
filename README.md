@@ -30,4 +30,11 @@ The [Shift Cipher](https://github.com/TJCampo/githubPortfolio/commit/3cf772735f6
 
 The [Trivia Game](https://github.com/TJCampo/githubPortfolio/commit/aad7b225f22a3649cb64809f6c98e6a8cd2288ae) was a project that went through multiple iterations. We learned how to use arrays, store external files and display them, and other useful things. This trivia program lets the player pick from three different topics and then gets tested based on that topic. The game checks the player's answers and then displays them at the end. The player's score is also saved to an external file which is displayed as high scores. 
 
+### Adopt-An-Insect GUI
+
+I've translated the original to an [Adopt-An-Insect GUI.] (https://github.com/TJCampo/githubPortfolio/commit/c80dd9b309c8d6cadb2d0a57b27b2f434dc24f44)This program has the same features as the original program but now functions with buttons.
+
+### Madlibs GUI
+
+I created a GUI for the [Madlibs](https://github.com/TJCampo/githubPortfolio/commit/b88ed41bcf6c952874278d8dc27db585b9dc4371) project which was one of the first projects we did in class. This program stores strings in an array that the player can dynamically change to influence how the final string is read out. It uses text boxes and buttons to accomplish this. 
 Thank you for checking out my list!
