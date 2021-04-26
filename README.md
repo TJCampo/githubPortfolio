@@ -1,5 +1,5 @@
 ## Our Projects
-Here is a list of the game me and the class made together this semester.
+Here is a list of the programs me and the class made together this semester.
 
 
 ### Adventure Game
