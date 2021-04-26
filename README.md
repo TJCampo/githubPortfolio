@@ -32,7 +32,7 @@ The [Trivia Game](https://github.com/TJCampo/githubPortfolio/commit/aad7b225f22a
 
 ### Adopt-An-Insect GUI
 
-I've translated the original to an [Adopt-An-Insect GUI.] (https://github.com/TJCampo/githubPortfolio/commit/c80dd9b309c8d6cadb2d0a57b27b2f434dc24f44)This program has the same features as the original program but now functions with buttons.
+I've translated the original to an [Adopt-An-Insect GUI.](https://github.com/TJCampo/githubPortfolio/commit/c80dd9b309c8d6cadb2d0a57b27b2f434dc24f44)This program has the same features as the original program but now functions with buttons.
 
 ### Madlibs GUI
 
