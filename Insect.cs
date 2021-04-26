@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdoptAnInsectGUI
 {
-    class Player
+    class Insect
     {
-        int Money;
-        List
+        string Name;
+        string Info;
+        int NumOfLegs
+        bool Wing;
     }
 }
